@@ -3,6 +3,8 @@
 An interactive browser-based satellite tracker using live orbital elements
 from CelesTrak, SGP4 propagation through `satellite.js`, and a Three.js globe.
 
+**Live site:** https://rafaelgranadomartinez.github.io/satellite-tracker/
+
 ## Features
 
 - Live NORAD ID and satellite-name search

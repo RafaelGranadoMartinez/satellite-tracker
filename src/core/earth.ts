@@ -5,6 +5,7 @@ import { gmstFromDate } from '../utils/time';
 export const EARTH_SCENE_RADIUS = EARTH_RADIUS_KM * KM_TO_SCENE;
 
 const STATION_COLOR = 0xffb020; // amber, matches the ground-station HUD accent
+const assetUrl = (path: string): string => `${import.meta.env.BASE_URL}${path}`;
 
 export class Earth {
   readonly group: THREE.Group;
@@ -16,11 +17,11 @@ export class Earth {
     this.group = new THREE.Group();
 
     const loader = new THREE.TextureLoader();
-    const map = loader.load('/textures/earth_atmos_2048.jpg');
+    const map = loader.load(assetUrl('textures/earth_atmos_2048.jpg'));
     map.colorSpace = THREE.SRGBColorSpace;
     map.anisotropy = 8;
-    const specularMap = loader.load('/textures/earth_specular_2048.jpg');
-    const normalMap = loader.load('/textures/earth_normal_2048.jpg');
+    const specularMap = loader.load(assetUrl('textures/earth_specular_2048.jpg'));
+    const normalMap = loader.load(assetUrl('textures/earth_normal_2048.jpg'));
 
     const geometry = new THREE.SphereGeometry(EARTH_SCENE_RADIUS, 96, 96);
     const material = new THREE.MeshPhongMaterial({
@@ -97,7 +98,7 @@ export class Earth {
 
   private buildClouds(): THREE.Mesh {
     const loader = new THREE.TextureLoader();
-    const cloudMap = loader.load('/textures/earth_clouds_1024.png');
+    const cloudMap = loader.load(assetUrl('textures/earth_clouds_1024.png'));
     cloudMap.colorSpace = THREE.SRGBColorSpace;
     const geometry = new THREE.SphereGeometry(EARTH_SCENE_RADIUS * 1.006, 96, 96);
     const material = new THREE.MeshPhongMaterial({

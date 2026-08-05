@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: '.',
+  base: '/satellite-tracker/',
   server: {
     port: 5173,
   },
