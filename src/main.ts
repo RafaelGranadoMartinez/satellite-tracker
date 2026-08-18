@@ -5,6 +5,7 @@ import { SceneRig } from './core/scene';
 import { Earth } from './core/earth';
 import { TrackedSatelliteManager } from './satellites/manager';
 import { DEFAULT_GROUND_STATION, type GroundStation } from './ground/groundStation';
+import { formatPuertoRicoTime } from './utils/time';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 
@@ -25,7 +26,7 @@ app.insertAdjacentHTML(
         <span class="dot" id="feed-dot"></span>
         <span id="feed-label">LOADING…</span>
       </div>
-      <div class="clock-row"><span class="label">UTC</span> <span id="clock">--:--:--</span></div>
+      <div class="clock-row"><span class="label">PR TIME</span> <span id="clock">--:--:-- AST</span></div>
       <div class="controls-hint">DRAG TO ORBIT · SCROLL TO ZOOM</div>
     </div>
   </div>
@@ -397,7 +398,7 @@ function tick(now: number): void {
     renderTelemetry();
     lastTelemetryRender = now;
   }
-  clockEl.textContent = date.toISOString().slice(11, 19) + 'Z';
+  clockEl.textContent = formatPuertoRicoTime(date);
   rig.render();
   requestAnimationFrame(tick);
 }
