@@ -14,6 +14,7 @@ from CelesTrak, SGP4 propagation through `satellite.js`, and a Three.js globe.
 - Cached fallback elements when CelesTrak is unavailable
 - Selectable satellites and one-orbit trails in an inertial reference frame
 - Puerto Rico-inspired mission-control color palette
+- Puerto Rico local time display (Atlantic Standard Time)
 
 ## Run locally
 
